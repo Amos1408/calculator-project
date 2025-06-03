@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap 5.3 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <h2 class="text-center my-5 fs-1 ">Welcome to calculate me!</h2>
+
+    <main class="container mt-4 p-3">
+        
+        <div class="mb-3">
+            <input type="text" class="form-control inputValue" id="display" >
+        </div>
+
+            <div class=" d-flex gap-2 mb-2 ">
+                <button class="  btn btn-light col button fs-4" >Clear All</button>                
+                <button class="  btn btn-light col button fs-4" >X</button>                
+            </div>
+
+            <div class="d-flex gap-2 mb-2 ">
+                <button class="  btn btn-light col button fs-4 " value="1">1</button>
+                <button class="  btn btn-light col button fs-4" value="2">2</button>
+                <button class="  btn btn-light col button fs-4" value="3">3</button>
+                <button class="  btn btn-warning col button fs-4" value="plus"">+</button>
+            </div>
+
+            <div class="d-flex gap-2 mb-2"">
+                <button class="  btn btn-light col button fs-4" value="4">4</button>
+                <button class="  btn btn-light col button fs-4" value="5">5</button>
+                <button class="  btn btn-light col button fs-4" value="6">6</button>
+                <button class="  btn btn-warning col button fs-4" value="minus">-</button>
+            </div>
+
+            <div class="d-flex gap-2 mb-2"">
+                <button class="  btn btn-light col button fs-4" value="7">7</button>
+                <button class="  btn btn-light col button fs-4" value="8">8</button>
+                <button class="  btn btn-light col button fs-4" value="9">9</button>
+                <button class="  btn btn-warning col button fs-4" value="*">*</button>
+            </div>
+
+            <div class="d-flex gap-2 mb-2"">
+                <button class=" btn btn-light col button fs-4" value="0">0</button>
+                <button class=" btn btn-light col button fs-4" value=".">.</button>
+                <button class="  btn btn-warning col button fs-4" value="/">/</button>
+                <button class="  btn btn-success col button fs-4" id="=">=</button>
+            </div>
+        
+    </main>
+
+    <style>
+        main{
+            border-radius: 10px;
+            background-color: rgb(84, 113, 206);
+        }
+
+        body{
+            background-color: #f0f2f5;
+        }
+
+       
+    </style>
+
+<script>
+    let string="";
+
+  const display = document.querySelector('.inputValue'); // get the input element
+  const buttons = document.querySelectorAll('.button'); // get all calculator buttons
+  
+  Array.from(buttons).forEach(button =>{
+    button.addEventListener('click', (e)=>{
+
+
+        if(e.target.innerHTML == "="){
+            string = eval(string);
+            display.value =string;
+        }
+
+        else if(e.target.innerHTML == "Clear All"){
+            string = "";
+            display.value =string;
+        }
+
+        else if(e.target.innerHTML == "X"){
+            string = string.slice(0, -1);
+            display.value = string;
+        }
+
+        else{
+        string=string+e.target.textContent;
+        display.value =string;
+        }
+    });
+  });
+
+</script>
+
+
+</body>
+</html>
+
